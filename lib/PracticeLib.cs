@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace lib {
     public class Practice {
@@ -27,7 +28,7 @@ namespace lib {
 
         public IEnumerable<int> SortFunc (IList<int> input) =>
             input.Where (x => x % 2 != 0).
-            OrderBy (x => x);
+        OrderBy (x => x);
 
         public IEnumerable<int> Sort (List<int> input) {
             List<int> output = new List<int> ();
@@ -53,8 +54,24 @@ namespace lib {
                 DateTime.Parse ("1-5-2010")
             };
 
-        public bool PredicateTest(Predicate<int> fn,int i){
-            return fn(i);
+        public bool PredicateTest (Predicate<int> fn, int i) {
+            return fn (i);
+        }
+
+        public object NullReferences () {
+            StringBuilder x = new StringBuilder ();
+            x.Append ("hello");
+            StringBuilder y = x;
+            y = null;
+            return x;
+        }
+
+         public object ReferenceValueChange () {
+            StringBuilder x = new StringBuilder ();
+            x.Append ("hello");
+            StringBuilder y = x;
+            y.Append("world");
+            return x;
         }
     }
 }
