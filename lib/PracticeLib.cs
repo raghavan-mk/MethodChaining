@@ -1,30 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using BenchmarkDotNet;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace lib {
     public class Practice {
+
         public void Select () { }
+
+        public TResult Using<TIDisposable, TResult> (Func<TIDisposable> factory, Func<TIDisposable, TResult> fn)
+        where TIDisposable : IDisposable {
+            using (var disposable = factory ()) {
+                return fn (disposable);
+            }
+        }
 
         public int Squared (int x) => x * x;
 
         public string Read (string path) =>
 
-            Using<StreamReader, String> (
+            Using (
                 () => new StreamReader (path), //Func<IDisposable> factory
                 file => file.ReadToEnd () //Func<IDisposable, String> 
             );
-
-        public TResult Using<TIDisposable, TResult> (
-            Func<TIDisposable> factory,
-            Func<TIDisposable, TResult> map
-        ) where TIDisposable : IDisposable {
-            using (var disposable = factory ()) {
-                return map (disposable);
-            }
-        }
 
         public IEnumerable<int> SortFunc (IList<int> input) =>
             input.Where (x => x % 2 != 0).
@@ -66,12 +69,41 @@ namespace lib {
             return x;
         }
 
-         public object ReferenceValueChange () {
+        public object ReferenceValueChange () {
             StringBuilder x = new StringBuilder ();
             x.Append ("hello");
             StringBuilder y = x;
-            y.Append("world");
+            y.Append ("world");
             return x;
         }
+
+        public void OutVariables () {
+            OutVariableParams (out var x, out var y);
+            Console.WriteLine ($"({x}, {y})");
+        }
+
+        public void OutVariableParams (out int x, out int y) {
+            x = 1;
+            y = 2;
+        }
+
+        public (string first, int age, string last) TupleReturn () =>
+            ("Raghavan", 37, "Iyengar");
+
+        public string ForEachLoop (Dictionary<int, string> inputs) {
+
+            string args = "";
+
+            foreach (var i in inputs) {
+                args += i.Value + ",";
+            }
+
+            return args.TrimEnd (',');
+        }
+
+        public int Add (int x, int y) => x + y;
+
+        public Func<int, int> AddFunc (int x) => y => x + y;
+
     }
 }

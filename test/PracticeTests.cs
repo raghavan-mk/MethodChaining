@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BenchmarkDotNet;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using lib;
 using Xunit;
 
@@ -56,15 +59,23 @@ namespace test {
             Assert.Equal ("hello", result);
 
         }
+
         [Fact]
         public void TestForNullReferences () {
-            var o =_p.NullReferences();
-            Assert.NotNull(o);
+            var o = _p.NullReferences ();
+            Assert.NotNull (o);
         }
 
-          public void TestForReferenceValueChanges () {
-            var o =_p.NullReferences();
-            Assert.Equal(o.ToString(),"hello world");
+        [Fact]
+        public void TestForReferenceValueChanges () {
+            var o = _p.NullReferences ();
+            Assert.Equal (o.ToString (), "hello world");
+        }
+        [Fact]
+        public void TestAddFuncTwoNos(){
+            var actual = _p.AddFunc(1)(12);
+            var actuals = new int[]{1,2,3,4,5}.Select(s => _p.AddFunc(s)(5)).ToArray();
+            Assert.Equal(10,actuals[4]);
         }
     }
 }
