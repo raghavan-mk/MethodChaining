@@ -4,9 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using BenchmarkDotNet;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+using System.Threading.Tasks;
 
 namespace lib {
     public class Practice {
@@ -26,7 +24,7 @@ namespace lib {
 
             Using (
                 () => new StreamReader (path), //Func<IDisposable> factory
-                file => file.ReadToEnd () //Func<IDisposable, String> 
+                file => file.ReadToEnd() //Func<IDisposable, String> 
             );
 
         public IEnumerable<int> SortFunc (IList<int> input) =>
@@ -105,5 +103,37 @@ namespace lib {
 
         public Func<int, int> AddFunc (int x) => y => x + y;
 
+        public List<String> CheckForRefTypes(){
+            List<String> ids = new List<string>{
+                "1","2","3","4"
+            };
+            CheckForRefTypes(ref ids);
+            return ids;
+        }
+
+        public void CheckForRefTypes(ref List<String> ids){
+            ids.Add("5");
+        }
+
+        public int RefArrays(){
+            int[] ints = {1,2,3};
+            RefArrays(ints);
+            return ints[0];
+        }
+
+        public int RefArrays_1(){
+            int[] ints = {1,2,3};
+            RefArrays_1(ints);
+            return ints[0];
+        }
+
+        public void RefArrays(params int[] ints){
+            ints[0] = 100;            
+        }
+
+         public void RefArrays_1(params int[] ints){
+            ints = new int[3];
+            ints[0] = 101;  
+         }
     }
 }

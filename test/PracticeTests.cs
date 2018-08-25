@@ -40,10 +40,11 @@ namespace test {
         }
 
         [Fact]
-        public void TestRead () {
+        public void TestRead()
+        {
             var text =
-                _p.Read (@"/Users/HomeLaptop/Documents/VSCode/c#/C#_practice_lib/lib/PracticeLib.cs");
-            Console.WriteLine (text);
+                _p.Read(@"/Users/HomeLaptop/Documents/VSCode/c#/C#_practice_lib/lib/PracticeLib.cs");
+            Console.WriteLine(text);
         }
 
         [Fact]
@@ -76,6 +77,21 @@ namespace test {
             var actual = _p.AddFunc(1)(12);
             var actuals = new int[]{1,2,3,4,5}.Select(s => _p.AddFunc(s)(5)).ToArray();
             Assert.Equal(10,actuals[4]);
+        }
+
+        [Fact]
+        public void TestCheckForRefIds(){
+            Assert.Equal(_p.CheckForRefTypes().Count,5);
+        }
+
+        [Fact]
+        public void TestForRefArrays(){
+            Assert.Equal(_p.RefArrays(),100);
+        }
+
+         [Fact]
+        public void TestForRefArrays_1(){
+            Assert.Equal(_p.RefArrays_1(),1);
         }
     }
 }
