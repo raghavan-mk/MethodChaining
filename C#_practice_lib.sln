@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "benchmark", "benchmark\benc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console", "console\console.csproj", "{A05DBCE8-5DA9-4311-B44F-488468F038F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tpl", "tpl\tpl.csproj", "{CEE85527-096B-4A8F-8359-C548844BCC37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{A05DBCE8-5DA9-4311-B44F-488468F038F0}.Release|x64.Build.0 = Release|Any CPU
 		{A05DBCE8-5DA9-4311-B44F-488468F038F0}.Release|x86.ActiveCfg = Release|Any CPU
 		{A05DBCE8-5DA9-4311-B44F-488468F038F0}.Release|x86.Build.0 = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|x64.Build.0 = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Debug|x86.Build.0 = Debug|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|x64.ActiveCfg = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|x64.Build.0 = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|x86.ActiveCfg = Release|Any CPU
+		{CEE85527-096B-4A8F-8359-C548844BCC37}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -172,3 +172,11 @@ console/obj/Debug/netcoreapp2.1/console.assets.cache
 console/obj/Debug/netcoreapp2.1/console.csproj.CoreCompileInputs.cache
 console/obj/Debug/netcoreapp2.1/console.csproj.FileListAbsolute.txt
 console/obj/Debug/netcoreapp2.1/console.csprojAssemblyReference.cache
+tpl/obj/*.*
+tpl/bin/*.*
+tpl/obj/debug/*.*
+tpl/bin/debug/*.*
+console/bin/*.*
+console/obj/*.*
+console/bin/debug/*.*
+console/obj/debug/*.*
