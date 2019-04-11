@@ -1,27 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace tpl {
     class Program {
         static void Main (string[] args) {
+            Console.WriteLine(Test().Result);
+            Console.WriteLine("i do not like to wait");
+          
+        }
 
-            Task<string> t = Task.Factory.StartNew (() => {
-                using (StreamReader sr = new StreamReader 
-                (@"/Users/HomeLaptop/Documents/VSCode/c#/C#_practice_lib/console/Program.cs")) {
-                    return sr.ReadToEnd ();
-                }
-            });
-
-            // var result = await t;
-
-            Task t2 = t.ContinueWith ((a) => {
-                Console.WriteLine (a.Result);
-            });
-
-            Console.WriteLine("Waiting...");
-            Console.WriteLine("Still waiting...");
-
+        static async Task<int> Test(){
+            await Task.Delay(10000).ConfigureAwait(false);
+            return 1;
         }
     }
 }

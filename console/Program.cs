@@ -24,6 +24,7 @@ namespace console {
                     .SkipLast (1)
                     .ToList ();
 
+                
                 //top 3 fuel efficient cars by country
 
                 var query = manufacturers
@@ -35,7 +36,8 @@ namespace console {
                                     Cars = c
                                 })
                     .GroupBy(m => m.Manufacturer.Country)
-                    .OrderBy(m => m.Key);                                     
+                    .OrderBy(m => m.Key);           
+                        
 
                 foreach (var country in query) {                    
                     Console.WriteLine ($"Country:{country.Key}");

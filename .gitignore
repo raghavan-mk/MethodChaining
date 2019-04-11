@@ -180,3 +180,10 @@ console/bin/*.*
 console/obj/*.*
 console/bin/debug/*.*
 console/obj/debug/*.*
+random/obj/*.*
+random/bin/*.*
+random/obj/debug/*.*
+random/bin/debug/*.*
+events/obj/
+events/bin/
+
