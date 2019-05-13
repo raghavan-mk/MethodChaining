@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace tpl {
     class Program {
-        static void Main (string[] args) {
+        static async Task Main (string[] args) {
             Console.WriteLine(Test().Result);
             Console.WriteLine("i do not like to wait");
+            await DoSomethingAsync();
           
         }
 
@@ -16,5 +17,7 @@ namespace tpl {
             await Task.Delay(10000).ConfigureAwait(false);
             return 1;
         }
+
+        static async Task<int> DoSomethingAsync() => await Task.Run(() => 1).ConfigureAwait(false);
     }
 }
